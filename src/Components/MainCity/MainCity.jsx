@@ -2,11 +2,10 @@ import React from 'react';
 import { year, month, day } from '../../helpers/commonHelpers';
 import './ManCity.css'
 
-export const MainCity = ({ currentLocation, currentWeather, getSavedLocations }) => {
+export const MainCity = ({ currentLocation, currentWeather, setLocationIdToSave }) => {
 
     const saveCity = () => {
-        localStorage.setItem(currentLocation.id, JSON.stringify(currentLocation));
-        getSavedLocations()
+        setLocationIdToSave(currentLocation.id);
     }
 
     return (

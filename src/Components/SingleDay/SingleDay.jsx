@@ -8,7 +8,8 @@ import { Map } from '../GoogleMap/GoogleMap'
 import './SingleDay.css'
 
 
-const SingleDay = ({ currentLocation, currentWeather, getForecast, option, getSavedLocations, match, setLocationById, setCurrentForecastPeriod }) => {
+const SingleDay = ({ currentLocation, currentWeather, getForecast, option, getSavedLocations, 
+    match, setLocationById, setCurrentForecastPeriod, setLocationIdToSave }) => {
 
     const [forecast, setForecast] = useState([])
 
@@ -35,19 +36,20 @@ const SingleDay = ({ currentLocation, currentWeather, getForecast, option, getSa
         <div>
             <MainCity currentLocation={currentLocation}
                 currentWeather={currentWeather}
-                getSavedLocations={getSavedLocations} />            
-         <div className='singleDayWrapper'>
+                getSavedLocations={getSavedLocations} 
+                setLocationIdToSave={setLocationIdToSave}/>
+            <div className='singleDayWrapper'>
                 <div className='forecastSection'>
-                <h1>{option}</h1>
-                <div className='forecastTableRow'>
-                    <p>Time</p>
-                    <p>Weather</p>
-                </div>
+                    <h1>{option}</h1>
+                    <div className='forecastTableRow'>
+                        <p>Time</p>
+                        <p>Weather</p>
+                    </div>
                     {
                         forecast.map(singleForecast => {
                             return (
                                 <div key={singleForecast.date} className='forecastTableRow'>
-                                   <p> {convertTime(singleForecast.date)}</p> <p>{singleForecast.temp}°C, {singleForecast.weather}, Wind: {singleForecast.wind} m/s</p>
+                                    <p> {convertTime(singleForecast.date)}</p> <p>{singleForecast.temp}°C, {singleForecast.weather}, Wind: {singleForecast.wind} m/s</p>
                                 </div>
                             )
                         })
@@ -58,7 +60,7 @@ const SingleDay = ({ currentLocation, currentWeather, getForecast, option, getSa
                         currentWeather={currentWeather}
                     />
                 </div>
-         </div>
+            </div>
         </div>
     )
 }

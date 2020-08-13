@@ -26,6 +26,8 @@ function App() {
     });
     const [savedLocations, setSavedLocations] = useState([])
     const [currentForecastPeriod, setCurrentForecastPeriod] = useState('today')
+    const [locationIdToSave, setLocationIdToSave] = useState(null)
+    const [locationIdToRemove, setLocationIdToRemove] = useState(null)
 
 
     const getSavedLocations = () => {
@@ -42,7 +44,7 @@ function App() {
         const location = await getLocationById(locId)
         setCurrentLocation(location)
     }
-    
+
     useEffect(() => {
         if (currentLocation.lat && currentLocation.lon) {
             getCurrentWeather(currentLocation.lat, currentLocation.lon)
@@ -50,6 +52,29 @@ function App() {
         }
     }, [currentLocation])
 
+    useEffect(() => {
+        console.log('locationIdToSave');
+        console.log(locationIdToSave);
+        if (locationIdToSave) {
+            localStorage.setItem(locationIdToSave, JSON.stringify(currentLocation));
+            getSavedLocations()
+        }
+        return () => {
+            setLocationIdToSave(null)
+        }
+    }, [locationIdToSave])
+
+    useEffect(() => {
+        console.log('locationIdToRemove');
+        console.log(locationIdToRemove);
+        if (locationIdToRemove) {
+            localStorage.removeItem(locationIdToRemove);
+            getSavedLocations()
+        }
+        return () => {
+            setLocationIdToRemove(null)
+        }        
+    }, [locationIdToRemove])
 
 
     return (
@@ -67,7 +92,9 @@ function App() {
                     currentWeather={currentWeather}
                     savedLocations={savedLocations}
                     getSavedLocations={getSavedLocations}
-                    setCurrentForecastPeriod={setCurrentForecastPeriod}                    
+                    setCurrentForecastPeriod={setCurrentForecastPeriod}
+                    setLocationIdToSave={setLocationIdToSave}
+                    setLocationIdToRemove={setLocationIdToRemove}                    
                 />
                 } />
 
@@ -79,6 +106,7 @@ function App() {
                     getSavedLocations={getSavedLocations}
                     setLocationById={setLocationById}
                     setCurrentForecastPeriod={setCurrentForecastPeriod}
+                    setLocationIdToSave={setLocationIdToSave}     
                 />
                 } />
 
@@ -90,6 +118,7 @@ function App() {
                     getSavedLocations={getSavedLocations}
                     setLocationById={setLocationById}
                     setCurrentForecastPeriod={setCurrentForecastPeriod}
+                    setLocationIdToSave={setLocationIdToSave}     
                 />
                 } />
 
@@ -101,6 +130,7 @@ function App() {
                     getSavedLocations={getSavedLocations}
                     setLocationById={setLocationById}
                     setCurrentForecastPeriod={setCurrentForecastPeriod}
+                    setLocationIdToSave={setLocationIdToSave}     
                 />
                 } />
             </Switch>

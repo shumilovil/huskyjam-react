@@ -7,7 +7,8 @@ import { groupForecastsByDay } from '../../helpers/commonHelpers'
 import './SeveralDays.css'
 import { withRouter } from 'react-router-dom';
 
-const SeveralDays = ({ currentLocation, currentWeather, getForecast, option, getSavedLocations, match, setLocationById, setCurrentForecastPeriod }) => {
+const SeveralDays = ({ currentLocation, currentWeather, getForecast, option, getSavedLocations, match,
+    setLocationById, setCurrentForecastPeriod, setLocationIdToSave }) => {
 
     const [forecast, setForecast] = useState([])
     const [forecastGroup, setForecastGroup] = useState([])
@@ -52,7 +53,8 @@ const SeveralDays = ({ currentLocation, currentWeather, getForecast, option, get
         <div>
             <MainCity currentLocation={currentLocation}
                 currentWeather={currentWeather}
-                getSavedLocations={getSavedLocations} />
+                getSavedLocations={getSavedLocations}
+                setLocationIdToSave={setLocationIdToSave} />
             <div className='forecastRange'>
                 {
                     (firstDate && lastDate)

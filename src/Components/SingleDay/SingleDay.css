@@ -11,7 +11,7 @@
 }
 
 .forecastSection {
-    width: 240px;
+    width: 245px;
     margin-bottom: 20px;
 }
 
@@ -28,6 +28,7 @@
 .forecastTableRow p {    
     margin-top: 0px;
     margin-bottom: 0px;
+    text-align: left;
 }
 
 .forecastTableRow:first-of-type {

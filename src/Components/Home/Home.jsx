@@ -5,29 +5,29 @@ import { useEffect } from 'react';
 import { getIPAndCity } from '../../api';
 import './Home.css'
 
-export const Home = ({ currentLocation, setCurrentLocation, currentWeather, getSavedLocations, savedLocations, setCurrentForecastPeriod }) => {
+export const Home = ({ currentLocation, setCurrentLocation, currentWeather, getSavedLocations,
+    savedLocations, setCurrentForecastPeriod, setLocationIdToSave, setLocationIdToRemove }) => {
 
     useEffect(() => {
         getSavedLocations()
     }, [])
-    
+
     useEffect(() => {
         console.log('Home getIPAndCity');
         getIPAndCity().then(res => setCurrentLocation(res))
         setCurrentForecastPeriod('today')
-
     }, [setCurrentLocation])
 
     const removeSavedLocation = (locId) => {
-        localStorage.removeItem(locId)
-        getSavedLocations()
+        setLocationIdToRemove(locId)
     }
 
     return (
         <div>
             <MainCity currentLocation={currentLocation}
                 currentWeather={currentWeather}
-                getSavedLocations={getSavedLocations} />
+                getSavedLocations={getSavedLocations}
+                setLocationIdToSave={setLocationIdToSave} />
 
             <h1>Saved cities</h1>
 
