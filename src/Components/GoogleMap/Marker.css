@@ -1,0 +1,33 @@
+.mapMarker {
+    width: 120px;
+    position: relative;
+    top: -64px;
+    left: -60px;
+    text-align: center;
+}
+
+.mapMarker img {
+    cursor: pointer;
+}
+
+.markerWeather {    
+    border: solid 1px lightgray;
+    border-radius: 4px;   
+    background-color: white;
+}
+
+.closeMarkerWeather {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    margin-top: 2px;
+    border: solid 1px lightgray;
+    border-radius: 4px;   
+    background-color: white;
+    cursor: pointer;
+}
+
+.closeMarkerWeather:hover {
+    background-color: lightgray;
+}

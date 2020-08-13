@@ -1,0 +1,32 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.headerLeft {
+    display: flex;
+    padding: 10px; 
+}
+
+.headerLeft .item {
+    margin-left: 5px;
+    margin-right: 5px;    
+}
+
+.headerLeft .item a {
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+}
+
+.headerLeft .item a.activeLink {   
+    border-radius: 5px;
+    background-color: lightgray;    
+  }
+
+.selectCity {
+    width: 250px;
+    padding: 10px;
+}

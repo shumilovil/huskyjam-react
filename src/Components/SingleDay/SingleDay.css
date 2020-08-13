@@ -1,0 +1,40 @@
+.singleDayWrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.forecastSection, .mapSection {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.forecastSection {
+    width: 240px;
+    margin-bottom: 20px;
+}
+
+.forecastSection h1 {
+    margin-top: 0px;
+    text-align: left;    
+}
+
+.forecastTableRow {
+    display: flex;
+    margin-bottom: 5px;       
+}
+
+.forecastTableRow p {    
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.forecastTableRow:first-of-type {
+    border-bottom: solid 1px;
+}
+
+.forecastTableRow p:first-child {
+    padding-right: 15px;
+}
+

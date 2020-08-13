@@ -1,0 +1,23 @@
+.forecastContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+
+}
+
+.forecastGroup {
+    width: 250px;
+    border: solid 1px black;
+    border-radius: 5px;
+    text-align: left;
+    padding: 7px;
+    margin: 10px;
+}
+
+.forecastGroupDate {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    
+}
+

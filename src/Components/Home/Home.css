@@ -1,0 +1,36 @@
+.savedLocationsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.singleSavedLocation {
+    border: solid 1px;
+    border-radius: 5px;
+    width: 150px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.singleSavedLocationWrapper {    
+    position: relative;    
+}
+
+.savedLocationsWrapper a {
+    text-decoration: none;
+    color: black;
+}
+
+.removeLocation {
+    position: absolute;
+    top: 2px;
+    right: 8px;
+    font-size: 25px;
+    cursor: pointer;
+    transform: rotate(45deg);
+}
