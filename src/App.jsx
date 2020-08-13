@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {  getCurrentWeather, getForecast, getLocationById } from './api';
+import { getCurrentWeather, getForecast, getLocationById } from './api';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import HeaderWithRouter from './Components/Header/Header';
@@ -8,6 +8,7 @@ import { Switch, Route } from 'react-router-dom';
 import SingleDayWithRouter from './Components/SingleDay/SingleDay';
 import { Home } from './Components/Home/Home';
 import SeveralDaysWithRouter from './Components/SeveralDays/SeveralDays';
+import { MainCity } from './Components/MainCity/MainCity';
 
 
 function App() {
@@ -73,7 +74,7 @@ function App() {
         }
         return () => {
             setLocationIdToRemove(null)
-        }        
+        }
     }, [locationIdToRemove])
 
 
@@ -84,57 +85,47 @@ function App() {
                 setLocationById={setLocationById}
                 currentForecastPeriod={currentForecastPeriod} />
 
-            <Switch>
+            <MainCity currentLocation={currentLocation}
+                currentWeather={currentWeather}
+                getSavedLocations={getSavedLocations}
+                setLocationIdToSave={setLocationIdToSave} />
 
+            <Switch>
                 <Route exact path='/' render={() => <Home
                     setCurrentLocation={setCurrentLocation}
-                    currentLocation={currentLocation}
-                    currentWeather={currentWeather}
                     savedLocations={savedLocations}
                     getSavedLocations={getSavedLocations}
                     setCurrentForecastPeriod={setCurrentForecastPeriod}
-                    setLocationIdToSave={setLocationIdToSave}
-                    setLocationIdToRemove={setLocationIdToRemove}                    
+                    setLocationIdToRemove={setLocationIdToRemove}
                 />
                 } />
-
                 <Route path='/:locId?/today' render={() => <SingleDayWithRouter
                     option='today'
                     getForecast={getForecast}
                     currentLocation={currentLocation}
                     currentWeather={currentWeather}
-                    getSavedLocations={getSavedLocations}
                     setLocationById={setLocationById}
                     setCurrentForecastPeriod={setCurrentForecastPeriod}
-                    setLocationIdToSave={setLocationIdToSave}     
                 />
                 } />
-
                 <Route path='/:locId?/tomorrow' render={() => <SingleDayWithRouter
                     option='tomorrow'
                     getForecast={getForecast}
                     currentLocation={currentLocation}
                     currentWeather={currentWeather}
-                    getSavedLocations={getSavedLocations}
                     setLocationById={setLocationById}
                     setCurrentForecastPeriod={setCurrentForecastPeriod}
-                    setLocationIdToSave={setLocationIdToSave}     
                 />
                 } />
-
                 <Route path='/:locId?/severaldays' render={() => <SeveralDaysWithRouter
                     option='severaldays'
                     getForecast={getForecast}
                     currentLocation={currentLocation}
-                    currentWeather={currentWeather}
-                    getSavedLocations={getSavedLocations}
                     setLocationById={setLocationById}
                     setCurrentForecastPeriod={setCurrentForecastPeriod}
-                    setLocationIdToSave={setLocationIdToSave}     
                 />
                 } />
             </Switch>
-
         </div>
     );
 }

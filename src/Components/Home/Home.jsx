@@ -1,12 +1,11 @@
 import React from 'react';
-import { MainCity } from '../MainCity/MainCity';
 import { NavLink } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getIPAndCity } from '../../api';
 import './Home.css'
 
-export const Home = ({ currentLocation, setCurrentLocation, currentWeather, getSavedLocations,
-    savedLocations, setCurrentForecastPeriod, setLocationIdToSave, setLocationIdToRemove }) => {
+export const Home = ({ setCurrentLocation, getSavedLocations,
+    savedLocations, setCurrentForecastPeriod, setLocationIdToRemove }) => {
 
     useEffect(() => {
         getSavedLocations()
@@ -24,13 +23,7 @@ export const Home = ({ currentLocation, setCurrentLocation, currentWeather, getS
 
     return (
         <div>
-            <MainCity currentLocation={currentLocation}
-                currentWeather={currentWeather}
-                getSavedLocations={getSavedLocations}
-                setLocationIdToSave={setLocationIdToSave} />
-
             <h1>Saved cities</h1>
-
             <div className='savedLocationsWrapper'>
                 {
                     savedLocations.map(location => {

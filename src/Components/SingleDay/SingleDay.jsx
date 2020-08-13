@@ -1,5 +1,4 @@
 import React from 'react';
-import { MainCity } from '../MainCity/MainCity';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { convertTime } from '../../helpers/commonHelpers'
@@ -8,8 +7,8 @@ import { Map } from '../GoogleMap/GoogleMap'
 import './SingleDay.css'
 
 
-const SingleDay = ({ currentLocation, currentWeather, getForecast, option, getSavedLocations, 
-    match, setLocationById, setCurrentForecastPeriod, setLocationIdToSave }) => {
+const SingleDay = ({ currentLocation, currentWeather, getForecast, option, 
+    match, setLocationById, setCurrentForecastPeriod }) => {
 
     const [forecast, setForecast] = useState([])
 
@@ -34,10 +33,6 @@ const SingleDay = ({ currentLocation, currentWeather, getForecast, option, getSa
 
     return (
         <div>
-            <MainCity currentLocation={currentLocation}
-                currentWeather={currentWeather}
-                getSavedLocations={getSavedLocations} 
-                setLocationIdToSave={setLocationIdToSave}/>
             <div className='singleDayWrapper'>
                 <div className='forecastSection'>
                     <h1>{option}</h1>
