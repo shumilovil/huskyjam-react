@@ -8,6 +8,10 @@ import './Home.css'
 export const Home = ({ currentLocation, setCurrentLocation, currentWeather, getSavedLocations, savedLocations, setCurrentForecastPeriod }) => {
 
     useEffect(() => {
+        getSavedLocations()
+    }, [])
+    
+    useEffect(() => {
         console.log('Home getIPAndCity');
         getIPAndCity().then(res => setCurrentLocation(res))
         setCurrentForecastPeriod('today')

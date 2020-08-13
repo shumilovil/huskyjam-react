@@ -42,12 +42,7 @@ function App() {
         const location = await getLocationById(locId)
         setCurrentLocation(location)
     }
-
-    useEffect(() => {
-        getSavedLocations()
-    }, [])
-
-
+    
     useEffect(() => {
         if (currentLocation.lat && currentLocation.lon) {
             getCurrentWeather(currentLocation.lat, currentLocation.lon)
