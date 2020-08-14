@@ -10,7 +10,7 @@ export const Map = (props) => {
     return (      
       <div className='googleMap'>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: '' }}
+          bootstrapURLKeys={{ key: 'AIzaSyAg7n-2OzZBJyV2o4SrsIP8hxY2cE7X0MA' }}
           defaultCenter={props.center}
           center={props.center}
           defaultZoom={11}
