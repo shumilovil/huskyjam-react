@@ -37,7 +37,6 @@ function App() {
         for (let location of localStorageArray) {
             parsedLocalStorage.push(JSON.parse(location))
         }
-        console.log(parsedLocalStorage)
         setSavedLocations(parsedLocalStorage)
     }
 
@@ -54,8 +53,6 @@ function App() {
     }, [currentLocation])
 
     useEffect(() => {
-        console.log('locationIdToSave');
-        console.log(locationIdToSave);
         if (locationIdToSave) {
             localStorage.setItem(locationIdToSave, JSON.stringify(currentLocation));
             getSavedLocations()
@@ -66,8 +63,6 @@ function App() {
     }, [locationIdToSave])
 
     useEffect(() => {
-        console.log('locationIdToRemove');
-        console.log(locationIdToRemove);
         if (locationIdToRemove) {
             localStorage.removeItem(locationIdToRemove);
             getSavedLocations()

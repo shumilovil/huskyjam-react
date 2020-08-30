@@ -5,7 +5,7 @@ const spott = axios.create({
     baseURL: 'https://spott.p.rapidapi.com/places/',
     headers: {
         "x-rapidapi-host": "spott.p.rapidapi.com",
-        "x-rapidapi-key": "4f66a1f512msh1ad70d75f930c7ap16c1a0jsn76b11867e939"
+        "x-rapidapi-key": "3a4cfabe93mshb90fd56ad0ebea0p1c7a70jsn7872cae96840"
     }
 });
 
@@ -76,7 +76,9 @@ export const getForecast = async (lat, lon, option) => {
             if (option === 'today') {
                 return forecastDate.getDate() === currentDate.getDate()
             } else if (option === 'tomorrow') {
-                return ((forecastDate.getDate() - currentDate.getDate()) === 1 || (forecastDate.getDate() - currentDate.getDate() < 0))
+                return ((forecastDate.getDate() - currentDate.getDate()) === 1 
+                || (forecastDate.getDate() - currentDate.getDate() < 0) 
+                && Math.abs(forecastDate.getDate() - currentDate.getDate()) <= 1)
             } else {
                 return true
             }

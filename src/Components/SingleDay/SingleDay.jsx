@@ -13,7 +13,6 @@ const SingleDay = ({ currentLocation, currentWeather, getForecast, option,
     const [forecast, setForecast] = useState([])
 
     useEffect(() => {
-        console.log('Single');
         if (match.params.locId) {
             setLocationById(match.params.locId)
         }

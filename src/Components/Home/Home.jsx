@@ -12,7 +12,6 @@ export const Home = ({ setCurrentLocation, getSavedLocations,
     }, [])
 
     useEffect(() => {
-        console.log('Home getIPAndCity');
         getIPAndCity().then(res => setCurrentLocation(res))
         setCurrentForecastPeriod('today')
     }, [setCurrentLocation])

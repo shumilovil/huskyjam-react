@@ -63,7 +63,6 @@ export const groupForecastsByDay = (forecast, setForecastGroup) => {
             groupItem = []
         }
     }
-    console.log(group)
     setForecastGroup(group)
 
 }

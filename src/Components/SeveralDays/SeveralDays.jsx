@@ -15,14 +15,12 @@ const SeveralDays = ({ currentLocation, getForecast, option, match,
     const [lastDate, setLastDate] = useState('')
 
     useEffect(() => {
-        console.log('Single');
         if (match.params.locId) {
             setLocationById(match.params.locId)
         }
     }, [match.params.locId])
 
     useEffect(() => {
-        console.log('Option');
         setCurrentForecastPeriod(option)
     }, [option])
 

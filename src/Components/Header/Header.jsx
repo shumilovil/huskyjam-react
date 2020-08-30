@@ -22,7 +22,6 @@ export const Header = ({ setLocationById, currentLocationId, history, currentFor
     const [optionsList, setOptionsList] = useState([]);
 
     useEffect(() => {
-        console.log('Hoook');
         const options = cityList.map(option => {
             return {
                 id: option.id,
