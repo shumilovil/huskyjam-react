@@ -1,4 +1,6 @@
 import axios from 'axios';
+import moment from 'moment';
+
 
 
 const spott = axios.create({
@@ -73,12 +75,13 @@ export const getForecast = async (lat, lon, option) => {
         const currentDate = new Date()
         const filteredForecast = forecast.list.filter(forecast => {
             const forecastDate = new Date(forecast.dt_txt)
+            const forecastDateMS = forecastDate.getTime()
+            const currentDateMS = currentDate.getTime()
+            const endOfTheCurrentDayMS = moment(currentDateMS).endOf('day').toDate().getTime()
             if (option === 'today') {
                 return forecastDate.getDate() === currentDate.getDate()
             } else if (option === 'tomorrow') {
-                return ((forecastDate.getDate() - currentDate.getDate()) === 1 
-                || (forecastDate.getDate() - currentDate.getDate() < 0) 
-                && Math.abs(forecastDate.getDate() - currentDate.getDate()) <= 1)
+                return (forecastDateMS > endOfTheCurrentDayMS && forecastDateMS < (endOfTheCurrentDayMS + 24 * 3600 * 1000))
             } else {
                 return true
             }

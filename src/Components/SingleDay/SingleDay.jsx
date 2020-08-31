@@ -43,7 +43,7 @@ const SingleDay = ({ currentLocation, currentWeather, getForecast, option,
                         forecast.map(singleForecast => {
                             return (
                                 <div key={singleForecast.date} className='forecastTableRow'>
-                                    <p> {convertTime(singleForecast.date)}</p> <p>{singleForecast.temp}°C, {singleForecast.weather}, Wind: {singleForecast.wind} m/s</p>
+                                    <p>{convertTime(singleForecast.date)}</p> <p>{singleForecast.temp}°C, {singleForecast.weather}, Wind: {singleForecast.wind} m/s</p>
                                 </div>
                             )
                         })
